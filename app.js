@@ -1,8 +1,8 @@
 var express = require('express');
 var app = express();
-app.use(express.static(__dirname + '/public'));
 var server = require('http').Server(app)
 var io = require('socket.io')(server);
+app.use(express.static(__dirname + '/public'));
 
 app.set('view engine', 'ejs');
 
