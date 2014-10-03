@@ -1,1 +1,24 @@
-hello world
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LED</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <h2>Welcome Person</h2>
+  <section class="main">
+    <div class="switch demo4">
+      <input type="checkbox" id="myonoffswitch">
+      <label><i class='icon-off'></i></label>
+    </div>
+  </section>
+</body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io.connect('/');
+  $("#myonoffswitch").change(function(){
+    socket.emit("stateChanged", this.checked);
+  });
+</script>
+</html>
